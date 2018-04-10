@@ -23,5 +23,10 @@ public class ScoreUI : MonoBehaviour {
             lastUpdate = Time.time;
         }
         uiText.text = score.ToString();
+
+        if (score > PlayerPrefs.GetInt("HighScore",0))
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+        }
 	}
 }
