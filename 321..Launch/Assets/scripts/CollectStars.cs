@@ -10,6 +10,7 @@ public class CollectStars : MonoBehaviour
         Debug.Log("Trigger on");
         if (other.tag == "Star")
         {
+            ScoreUI.score += 10;
             Debug.Log("Star collected!");
             Destroy(other.gameObject);
         }
