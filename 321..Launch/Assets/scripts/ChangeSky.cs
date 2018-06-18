@@ -17,6 +17,7 @@ public class ChangeSky : MonoBehaviour {
 
     void Start()
     {
+        ShuffleColors();
         cam = GetComponent<Camera>();
         cam.clearFlags = CameraClearFlags.SolidColor;
         mainColor1 = colors[colorIt];
@@ -47,5 +48,16 @@ public class ChangeSky : MonoBehaviour {
     {
         colorIt = (colorIt + 1) % colors.Length;
         //Debug.Log("color: " + colorIt);
+    }
+
+    void ShuffleColors()
+    {
+        for(int positionOfArray = 0; positionOfArray < colors.Length; positionOfArray ++)
+        {
+            Color c = colors[positionOfArray];
+            int randomPosition = Random.Range(0, colors.Length - 1);
+            colors[positionOfArray] = colors[randomPosition];
+            colors[randomPosition] = c;
+        }
     }
 }
