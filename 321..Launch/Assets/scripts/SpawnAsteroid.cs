@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnAsteroid : MonoBehaviour {
 
     public GameObject asteroid;
+    public GameObject obstacle;
 
     public float minX = -2.0f;
     public float maxX = 2.0f;
@@ -22,6 +23,7 @@ public class SpawnAsteroid : MonoBehaviour {
     void Start () {
         currentTime = Time.time;
         spawnSec = Random.Range(minS, maxS);
+        InvokeRepeating("SpawnObstacle", 2.0f, 2.0f); // spawn obstacle each 2 seconds
     }
 	
 	// Update is called once per frame
@@ -45,5 +47,11 @@ public class SpawnAsteroid : MonoBehaviour {
             Instantiate(asteroid, position, Quaternion.identity);
             yield return new WaitForSeconds(spawnAsteroidTime);
         }
+    }
+
+    void SpawnObstacle()
+    {
+        Vector3 position = new Vector3(Random.Range(minX, maxX), transform.position.y, 0);
+        Instantiate(obstacle, position, Quaternion.identity);
     }
 }

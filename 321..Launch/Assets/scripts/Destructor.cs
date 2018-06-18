@@ -9,7 +9,7 @@ public class Destructor : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Asteroid")
+        if (collision.tag == "Asteroid" || collision.tag == "Obstacle")
         {
             restartButton.gameObject.SetActive(true);
             Time.timeScale = 0;

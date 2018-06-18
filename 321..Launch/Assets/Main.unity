@@ -608,6 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroid: {fileID: 1357712352576136, guid: 4d469fbd9ae3cd74488385b5499e1f92, type: 2}
+  obstacle: {fileID: 1601255866143950, guid: 71c669c364c87634195ae6bfbfa0241f, type: 2}
   minX: -2
   maxX: 2
   minS: 2
